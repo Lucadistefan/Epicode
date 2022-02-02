@@ -1,0 +1,122 @@
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+hr {
+  display: none;
+}
+
+header {
+  background-color: lavender;
+  text-align: center;
+  border-bottom: 7px solid midnightblue;
+}
+header h2 {
+  color: midnightblue;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+#content {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 0 1em;
+}
+section {
+  border-bottom: 1px dashed #333;
+  margin-bottom: 3em;
+}
+section h2 {
+  text-align: center;
+}
+
+blockquote {
+  background-color: transparent;
+  text-align: right;
+  font-style: italic;
+}
+strong {
+  color: midnightblue;
+}
+
+@media screen and (min-width: 768px) {
+  #content section article {
+    display: flex;
+    justify-content: center;
+  }
+  #content section article div {
+    margin: 0 1em 1em;
+    border-radius: 20px;
+  }
+}
+.skill-tecniche {
+  background-color: lavender;
+  padding: 0.5em;
+}
+.skill-tecniche p.fakeButton {
+  border: 1px solid black;
+  padding: 5px;
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+}
+.skill-tecniche ul {
+  margin: 0;
+  padding: 0;
+}
+.skill-tecniche ul li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.fakeButton:hover + ul li {
+  width: 100%;
+  border-radius: 3px;
+  background-color: #a2cbfa;
+  display: flex;
+  justify-content: space-between;
+  /* animation-name: myskills;*/
+  animation-name: appari;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+}
+
+.skill-tecniche ul li:nth-child(3) {
+  width: 80%;
+}
+.skill-tecniche ul li:nth-child(4) {
+  width: 60%;
+}
+/*
+@keyframes myskills {
+    0% {width:0}
+    100%{max-width: 100%;}
+}
+*/
+@keyframes appari {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skill-operative {
+  background-color: lemonchiffon;
+  padding: 0.5em;
+}
+
+footer {
+  background-color: midnightblue;
+  border-top: 7px solid lavender;
+  color: #f0f0f0;
+  padding: 0 1em;
+  text-align: center;
+}
+footer small {
+  font-family: monospace;
+  font-size: 1.2rem;
+}
