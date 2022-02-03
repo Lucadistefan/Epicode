@@ -1,0 +1,47 @@
+@import "variabili";
+
+@mixin bottoneEvidente {
+  border: 3px solid red;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: $colorePrimario;
+}
+
+h1 {
+  color: $coloreSecondario;
+  margin-bottom: 10px;
+  @include bottoneEvidente();
+  span {
+    color: yellow;
+  }
+}
+
+h2 {
+  font-style: italic;
+  color: purple;
+}
+
+h3 {
+  @extend h2;
+  color: salmon;
+}
+
+a {
+  color: $colorePrimario;
+  text-transform: uppercase;
+}
+
+address {
+  @include bottoneEvidente;
+}
+
+@for $i from 1 through 5 {
+  p {
+    width: 20px + $i;
+  }
+}
