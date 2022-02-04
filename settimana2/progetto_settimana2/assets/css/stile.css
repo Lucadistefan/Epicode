@@ -24,7 +24,7 @@ h1 {
   color: #fff;
   padding: 7px 20px;
   border: solid 1px #0076a3;
-  background: #0095cd;
+  background: linear-gradient(to right, rgb(157, 210, 223), rgb(24, 147, 196));
 }
 
 #button {
@@ -108,19 +108,37 @@ footer p {
 }
 
 @media screen and (min-width: 992px) {
+  nav {
+    width: 95%;
+  }
+
   nav img {
-    padding-left: 200px;
+    padding-left: 150px;
+  }
+
+  #sfondo {
+    height: 450px;
   }
 
   h1 {
-    padding-left: 200px;
+    padding-left: 150px;
+    padding-top: 150px;
   }
 
   #p {
-    padding-left: 200px;
+    padding-left: 150px;
   }
 
   #bottone {
-    padding-left: 200px;
+    padding-left: 150px;
+  }
+
+  #div {
+    margin-top: 30px;
+  }
+
+  ul {
+    margin-top: 50px;
+    padding-left: 150px;
   }
 }
