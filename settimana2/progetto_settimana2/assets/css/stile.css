@@ -56,9 +56,8 @@ h2 {
   padding: 0px 10px;
 }
 
-.icon {
-  width: 100%;
-  display: inline-block;
+.fa-red {
+  color: red;
 }
 
 /* div */
