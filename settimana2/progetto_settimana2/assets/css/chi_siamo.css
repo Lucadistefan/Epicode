@@ -1,0 +1,28 @@
+body {
+  font-family: "Fira Sans", sans-serif;
+}
+
+p {
+  font-size: 13px;
+  opacity: 0.7;
+  padding: 0px 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.bottone {
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 7px 20px;
+  border: solid 1px #0076a3;
+  background: linear-gradient(to right, rgb(157, 210, 223), rgb(24, 147, 196));
+}
