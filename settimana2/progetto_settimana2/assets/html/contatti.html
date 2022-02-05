@@ -94,64 +94,76 @@
     <main>
       <section class="container">
         <div class="row">
-          <div class="col-lg">
-            <h1>Contatti</h1>
-            <form action="text">
-              <input type="text" name="Nome e Cognome" value="Nome e Cognome" />
-              <input type="text" value="Email" />
-              <input type="text" value="Oggetto" />
-              <input type="text" value="Scrivi il tuo messaggio" />
-            </form>
-            <a href=""
+          <h1>Contatti</h1>
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="Nome e Cognome">
+              <label for="floatingInput">Nome e Cognome</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Email">
+              <label for="floatingPassword">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="Oggetto">
+              <label for="floatingInput">Oggetto</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" placeholder="Scrivi il tuo commento" id="floatingTextarea2" style="height: 100px"></textarea>
+              <label for="floatingTextarea2">Scrivi il tuo commento</label>
+            </div>
+           <a href=""
               ><button type="button" class="bottone">
                 Invia il messaggio
-              </button></a
-            >
+              </button></a>
           </div>
-          <div class="col-lg" id="spazio">
+          <div class="col-lg-6" id="spazio">
             <h2>Sede formativa</h2>
-            <p>
-              Via Appia 1<br />
-              00100 Roma (RM)<br /><br />
-              info@epicode.school<br />
-              +39 0612345956
-            </p>
-            <h2>Lavora con noi</h2>
-            <p>
-              Per poterti candidare ad un ruolo da docente invia il tuo cv a
-              job@epicode.school
-            </p>
+            
           </div>
-        </div>
-      </section>
+        </div>        
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
-      <hr />
+      <hr id="hr"/>
 
       <footer class="container">
         <div class="row">
-          <div class="col-lg">
+          <div class="col-lg-4">
             <h2>Chi siamo</h2>
             <p>
-              Epicode School nasce con l'obiettivo di rivoluzionare la
-              formazione in ambito tech.
+              Epicode School nasce con l'obiettivo di rivoluzionare la formazione
+              in ambito tech.
             </p>
           </div>
-          <div class="col-lg">
+          <div class="col-lg-4">
             <h2>Ti piace ciò che vedi? Condividilo con i tuoi amici!</h2>
             <i class="fa fa-facebook" aria-hidden="true"></i>
             <i class="fa fa-linkedin" aria-hidden="true"></i>
-            <i class="fa fa-twitter" aria-hidden="true"></i><br />
-            <small>&copy; 2021 Epicode Web Developer school</small>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <p><small>&copy; 2021 Epicode Web Developer school</small></p>
           </div>
-          <div class="col-lg">
-            <form action="text">
-              <label for="email">Iscriviti alla nostra newsletter</label><br />
-              <input type="email" name="Va bene!" id="newsletter" />
-              <input type="button" value="Va bene!" />
+          <div class="col-lg-4">
+            <h2>Iscriviti alla nostra newsletter</h2>
+            <div class="input-group input-group-lg">
+              
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+          <span class="input-group-text bottone" id="inputGroup-sizing-lg">Va bene!</span>  
+        </div>
+              
             </form>
           </div>
         </div>
       </footer>
-    </main>
-  </body>
-</html>
+    </body>
+  </html>
+  
