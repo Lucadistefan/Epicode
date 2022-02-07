@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prima lezione javascript</title>
+    <script src="/giorno1/mattina1/js/codice.js"></script>
+    <script>
+      // var x = 5; // posso commentare anche a fianco delle istruzioni
+      // x = x + 1;
+      // questo è un commento a singola righa (inline)
+      /* questo è un commento a righa multipla
+        infatti anche se vado a capo resta commentato 
+        javascript è case sensitive cioè fa distinzione tra maiuscole e minuscole
+        MiaVariabile Miavariabile */
+    </script>
+  </head>
+  <body>
+    <button type="button" onclick="alert('Ciao!')">Ciao</button>
+    <!-- assegno all'attributo onclick dell'elemento button la stringa alert('Ciao!')
+    l'attributo onclick rappresenta l'evento del clic sul pulsante del mouse
+    quando clicco viene analizzato ed eseguito il codice javascript assegnato 
+    in questo caso visualizza un box con la scritta Ciao! -->
+
+    <!-- altro approccio inline utilizzabile solo per i link -->
+    <a href="javascript:alert('Ciao!')">Cliccami</a>
+    <!-- indichiamo al browser di interpretare il link come richiesta di esecuzione del codice javascript
+    (anziché come collegamento a un'altra pagina) -->
+    <script>
+      var username = "Luca Di Stefano";
+      console.log(username);
+      /*
+       javascript prevede cinque tipi di dati primitivi
+       1. stringa (testo)
+       2. numero
+       3. booleano
+       4. null
+       5. undefined
+       un tipo di dato complesso che sono gli oggetti
+       1. stringa è una sequenza di caratteri delimitata da apici doppi o singoli
+       "stringa numero uno" 'stringa numero due' -> unica regola delimitatore iniziale e finale uguale
+       "l'altro ieri" altro esempio "questa è una 'stringa'"
+       stringhe vuote -> "" ''.
+       per inserire dei caratteri speciali in una stringa \ (backslash è il carattere di escaping)
+       \n manda a capo
+       'Ieri pioveva. \n Oggi c'è il sole.'
+       2. numero !non ci sono apici!
+       var interoNegativo = -10;
+       var interoPositivo = 123;
+       var zero = 0,
+       var decimale = 0.52;
+       3. booleano -> accetta solo due valori true o false (senza apici)
+       4. null -> prevede solo un valore -> null (non rientra negli altri tipi di dati)
+       var x = null;
+       5. undefined -> un valore che non esiste -> es. variabile che non ha nessun valore nemmeno null
+       */
+      var MiaVariabile; // non dichiaro nulla ha valore undefined
+      MiaVariabile = 1; // la variabile ha un valore tipo di dato numerico
+      MiaVariabile = null; // posso sovrascrivere il tipo di dato
+      MiaVariabile = "uno";
+      MiaVariabile = true;
+      var MiaVariabile = 0; //posso assegnare un valore direttamente nella dichiarazione.
+      // LA VARIABILE E' UNA PORZIONE DI MEMORIA
+      /*
+      regole di naming
+      - non può coincidere con una keyword del linguaggio
+      - non può iniziare con un numero
+      - non può contenere caratteri speciali (spazio, trattino [-], punto interrogativo [?], punto [.])
+      - è però ammesso l'underscore [_] e anche il simbolo del dollaro [$]
+      -> nomi validi: variabile, _variabile1, a$tro3
+      -> nomi non validi: if, 2variabili, varia.bile
+      !! case sensitive!! Variabile1 e variabile1 sono due cose diverse
+
+      i tipi di dato primitivi hanno degli oggetti corrispondenti con proprietà e metodi
+      se li applichiamo js li converte nell'oggetto corrispondente
+      var nomeMaiuscolo = 'Andrea'.toUpperCase(); // diventa un oggetto perché ho applicato un metodo
+      var || let cambia l'ambito di accessibilità di quella variabile
+      const
+      var pigreco = 3.14;
+      const pigreco = 3.14; garantisce che il valore venga utilizzato soltanto in lettura
+
+      ARRAY
+      una variabile che contiene molteplici valori è un array
+      posso accedere a un array attraverso l'indice: un numero intero che parte da 0
+      var giorni = ['lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato', 'domenica']
+
+      nelle variabili i tipi di dati possono cambiare
+
+      FUNZIONI
+      una funziona è un insieme di istruzioni racchiuse in un blocco di codice,
+      che può essere contraddistinto da un nome
+      può accettare argomenti o parametri di ingresso e restituire dei valori
+      --> una funzione è una sequenza di istruzioni <--
+      come utilizziamo una funzione dentro uno script?
+      due fasi:
+      1à fase -> definizione o dichiarazione -> assegnamo un nome a un blocco di codice
+      2à fase -> invocazione o chiamata -> il blocco di codice viene eseguito
+      esempio:
+      DICHIARAZIONE
+      function nome(argomenti) {
+          // istruzioni
+      }
+      CHIAMATA
+      nome(valori); // i valori inseriti nella chiamata vengono passati, cioè assegnati agli argomenti della definizione
+      // function(param) -> questa è una funzione parametrica
+      return -> termina una funzione e restituisce un valore al codice che l'ha chiamata
+      esempio:
+      function msg(messaggio){
+          alert(messaggio);
+          return;
+      }
+
+       function FaiDomanda(prof) {
+         return "scusi," + prof;
+       }
+
+       console.log(FaiDomanda("Federico"));
+
+       OGGETTO
+       è un contenitore di valori eterogenei
+       un oggetto possiede
+       1. dati detti proprietà e sono rappresrntati da coppie nome-valore
+       2. funzionalità detti metodi e sono rappresentati da funzioni
+       
+      var oggettoVuoto = {};
+      var persona = {"nome":"Luca", "cognome": "Di Stefano"};
+      var persona = {"primo-nome": "Luca", "secondo.cognome": "Di Stefano"}; //il nome non segue le regole devo mettere ""
+
+      var persona = {
+          nome: "Mario"
+          cognome: "rossi"
+          indirizzo: { // la proprietà indirizzo è a sua volta un oggetto composto da specifiche proprietà
+              via: "Via Garibaldi",
+              numero: 15,
+              cap: "00100"
+              citta: "Roma"
+          },
+          sayHello : function(){
+              return 'Ciao a tutti!';
+          }
+      };
+      // per accedere ai valori memorizzati in un oggetto -> dot-notation
+      var nome = persona.nome;
+      //approccio alternativo
+      var nome = persona["nome"]; // è obbligatorio se i nomi non seguono le regole
+      // in entrambi i casi leggo la proprietà nome dell'oggetto persona
+      var eta = persona.eta; // se accedo a una proprietà non definità sarà undefined
+      persona.eta = 32; // posso aggiungere  -> definizione incrementale
+      // i metodi (funzioni) rappresentano le attività che un oggetto può compiere
+      function visualizzaNomeCognome() {return "Mario Rossi"};
+      persona.nomeCognome = visualizzaNomeCognome; // la assegno a una nuova proprietà dell'oggetto persona
+      //la proprietà nomeCognome contiene una funzione e quindi è un metodo
+      var nomecognome = persona.nomeCognome(); // lo eseguo
+      persona.nomeCognome = function() { return "Mario Rossi"} // funzione anonima | modo alternativo di definire un metodo
+
+      // this -> ci permette di visualizzare il valore corrente di una proprietà
+    */
+    </script>
+  </body>
+</html>
