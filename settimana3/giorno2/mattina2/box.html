@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>box</title>
+  </head>
+  <body>
+    <p id="miotesto"></p>
+    <form>
+      <input type="text" name="utente" id="utente" />
+      <button id="clicca">Aggiungi</button>
+    </form>
+    <script>
+      var btn = document.getElementById("clicca"); // ottiene l'elemento clicca
+      clicca.addEventListener("click", clickTheButton); // associa l'evento alla callback
+      function clickTheButton() {
+        var testo = document.getElementById("miotesto"); //var testo ci sarà il contenuto di #miotesto
+        var nuovoUtente = document.getElementById("utente").value; // il nuovo utente sarà il value dell'id #utente
+        testo.innerHTML = nuovoUtente; // stampo nuovo utente con .innerHTML nella variabile testo dichiarata alla riga 16
+      }
+    </script>
+  </body>
+</html>
