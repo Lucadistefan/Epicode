@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript - terza lezione</title>
+  </head>
+  <body>
+    <script>
+      /* Blocco di codice
+        {
+            x = x + 3;
+            y = x + 4;
+        }
+       
+        Istruzioni condizionali -> eseguono blocchi di codice alternativi in base alla valutazione di una condizione
+        Istruzioni condizionali -> 1. if e 2. switch
+        1) if semplice
+        1b) if con alternativa (if..else)
+        1c) if a cascata (if..else if..else)
+
+        IF SEMPLICE
+        -> esegue un blocco di codice solo se una condizione è vera
+        -> schema sintattico
+        if (condizione) {   -> condizione è un espressione booleana (true o false)
+            // istruzioni   -> sequenza di istruzioni da eseguire nel caso la condizione sia vera
+        }
+        if (x >= 37) {
+            messaggio = "Hai la febbre. \n";
+            messaggio = messaggio + "Temperatura: " + x + "gradi.";
+        }
+        Esempio:
+        var num1 = 10;
+        var num2 = 1;
+        if (num1 > num2) {
+        console.log("num1 è maggiore di num2");
+      }
+
+      IF ELSE
+      -> viene eseguito un blocco di codice oppure un altro in base alla valutazione di una condizione
+      -> schema sintattico
+      if(condizione) {
+          // istruzioni1    -> se la condizione è vera viene eseguito il blocco istruzioni1
+      } else {
+          // istruzioni2    -> altrimenti viene eseguito il blocco istruzioni2
+      }
+      Esempio:
+       if(x%2 == 0) {       //-> % è operatore resto; == invece significa uguale ( = è assegnazione)
+        messaggio = x + " è pari";
+       } else {
+           messaggio = x + " è dispari";
+       }
+       var num1 = 0;
+       var num2 = 1;
+       if (num1 > num2) {
+       console.log("num1 è maggiore di num2");
+       } else {
+       console.log("num1 è minore di num2");
+       }
+
+       IF A CASCATA
+       -> mette a disposizione più alternative di esecuzione
+       -> schema sintattico
+       if(condizione1) {          -> se la condizione1 è vera
+           // istruzioni1         -> eseguo il blocco istruzioni1
+       } else if (condizione2) {  -> se la condizione1 non è vera -> verifico la condizione2
+           // istruzioni2         -> se la condizione2 è vera     -> eseguo il blocco istruzion2
+       } else {                   -> se la condizione2 non è vera -> eseguo il blocco istruzione3
+           // istruzioni3         
+       }
+       Esempio:
+        var num = 9; // cambiare il valore per verificare la condizione
+      if (num > 0) {
+        console.log("num è maggiore di 0");
+      } else if (num < 0) {
+        console.log("num è un numero negativo");
+      } else {
+        console.log("num è zero oppure num non è un numero");
+      }
+       
+      var x = 5;
+      if (x % 2 == 0) {
+        messaggio = x + " è pari";
+      } else if (x % 2 == 1) {
+        messaggio = x + " è dispari";
+      } else {
+        messaggio = x + " non è un numero";
+      }
+
+      if a cascata sono if else -> posso scrivere anche così:
+
+      if(x%2 == 0) {
+          messaggio = x + " è pari";
+      } else {
+          if(x%2 == 1) {
+              messaggio = x + " è dispari";
+          } else {
+              messaggio = x + " non è un numero";
+          }
+      }
+
+
+      **** SWITCH ****
+      -> lo uso quando abbiamo diverse condizioni da valutare
+      -> schema sintattico
+      switch(espressione) {
+          case espressione1: istruzioni1;
+          break;
+          case espressione2: istruzioni2;
+          break;
+          case espressione3: istruzioni3;
+          break;
+          case espressione4: istruzioni4;
+          break;
+          default: istruzioni5;
+      }
+      -> confronto l'espressione di riferimento con i vari case
+      -> non appena viene individuata un espressione corrispondente esegue il blocco di codice associato
+      -> se non ci sono corrispondenze viene eseguito il blocco di codice associato alla keyword default
+      -> break evita che il blocco di istruzioni entri nel blocco successivo
+      
+      Esempio:
+      switch (x % 2) {
+        case 0:
+          messaggio = x + " è pari";
+          break;
+        case 1:
+          messaggio = x + " è dispari";
+          break;
+        default:
+          messaggio = x + " non è un numero";
+          break;
+      }
+
+      switch(voto) {
+          case1:
+          case2:
+          case3:
+          case4:
+          case5:
+                giudizio = "Insufficiente";
+                break;
+          case6:
+                giudizio= "sufficiente";
+                break;
+          case7:
+                giudizio = "discreto";
+                break;
+          case8:
+                giudizio = "buono";
+                break;
+          case9:
+                giudizio = "campioncino/a";
+                break;
+          case10:
+                giudizio = "non ho corretto io il compito";
+                break;                              
+      }
+      */
+
+      /*
+      un espressione è una combinazione di valori, variabili, operatori che rappresentano un nuovo valore
+      x + 1 -> è un espressione che combina una variabile con un valore numerico
+      javascript prevede tre tipi di operatori in base a quanti valori possono essere combinati
+      OPERATORI UNARI, BINARI, TERNARI a seconda che possano combinare uno, due o tre valori
+
+      OPERATORI ARITMETICI
+      + addizione
+      - sottrazione
+      / divisione
+      * moltiplicazione
+      % resto o modulo
+
+      Esempio: 
+      9/4
+      x + 10
+
+      4 + 5 * 6 + 7     -> seguo le regole della matematica, il risultato è 41
+      (4 + 5) * (6 + 7) -> posso usare le parentesi ma solo le tonde
+
+      operatori aritmetici prevedono anche tre operatori unari
+      - negazione
+      ++ incremento
+      -- decremento
+      incremento e decremento sono applicabili soltanto a delle variabili
+      attenzione alla posizione dell'operatore
+      se l'operatore si trova a sinistra dell'operando -> l'operazione viene eseguita prima di valutare l'espressione
+      se l'operatore si trova a destra dell'operando -> l'operazione viene eseguita dopo di valutare l'espressione
+      var x = 3;
+      var y = ++x; -> operatore a sinistra -> x prima viene incrementata e poi il risultato viene assegnato
+                                           -> x e y hanno valore 4
+      var x = 3;
+      var y = x++; -> operatore a destra -> il valore di x viene assegnato alla variabile y e solo dopo x viene incrementato di uno
+                                         -> x è 4 mentre y è 3
+      
+      OPERATORI RELAZIONALI -> utilizzati per confrontare dei valori
+      <   minore
+      <=  minore o uguale
+      >   maggiore
+      >=  maggiore o uguale
+      ==  uguale
+      !=  diverso
+      === strettamente uguale
+      !== strettamente diverso
+      le espressioni che usano operatori relazionali restituiscono un valore booleano in base all'esito del confronto
+      4 > 2      -> true
+      5 != 4 + 1 -> false     
+      
+      OPERATORI LOGICI -> consentono di combinare delle espressioni booleane
+      && and
+      || or
+      !  diverso
+      5 > 2 && 3 != 4 -> true
+      true || 4 >= 6  -> true
+      ! (5==5)        -> false
+
+      OPERATORE TERNARIO -> operatore condizionale  -> ci restituisce un valore in base ad un espressione booleana
+      -> sintassi -> condizione ? valore1 : valore2 -> se la condizione è vera viene restituito il valore1 altrimenti valore2
+      x%2 == 0 ? "pari" : "dispari"
+      var utenteAbilitato = false;
+      
+      Esempio:
+      utenteAbilitato
+        ? console.log("utente abilitato")
+        : console.log("utente disabilitato");
+      
+      ****** ITERZAIONI O CICLI ******
+      1. while 2.for
+
+      WHILE
+      -> schema sintattico
+      while (condizione) {
+          // istruzioni    -> finché la condizione è vera vengono eseguite le istruzioni contenute nel blocco di codice
+      }                    -> requisito fondamentale: !le istruzioni devono modificare la condizione!
+        
+      var i = 0;        // inizializzo la variabile
+      while (i < 10) {  // inserisco la condizione: finché è vera eseguo il blocco di codice
+        console.log(i); // eseguo il blocco di codice
+        i++;            // modifico la condizione
+      }
+
+      DO-WHILE
+      -> schema sintattico
+      do {
+          // istruzioni
+      }
+      while (condizione)    -> la condizione viene valutata solo dopo aver eseguito le istruzioni
+                            -> si garantisce che il blocco di codice viene eseguito almeno una volta
+
+      Esempio:                      
+      var i = 0;
+      do {
+        console.log("i = " + i + " ed è minore di 10");
+        i++;
+      } while (i < 10);
+      
+      
+      FOR
+      -> schema sintattico
+      for (inizializzazione; condizione; modifica) {
+          //istruzioni
+      }
+      inizializzazione -> js esegue questa istruzione per avviare il ciclo
+      condizione       -> espressione booleana che viene valutata prima di eseguire ciascuna iterazione
+                       -> se è falsa il blocco di codice non viene eseguito
+                       -> se è vera il blocco di codice viene eseguito
+      modifica         -> al termine di ciascuna iterazione viene eseguita l'istruzione di modifica (es. incremento)
+                       -> il ciclo ricomincia con la valutazione della condizione
+      
+      Esempio:                 
+      let str = "";
+      for (let i = 0; i < 9; i++) {
+        str = str + i;
+      }
+      console.log(str);
+      
+
+      ****** ARRAY ******
+      1. creao un oggetto array       -> var esempio = new Array();
+      2. inserisco dei dati           -> esempio[0] = "primo dato"; esempio[1] = "secondo dato"; esempio[2] = "terzo dato";
+                                      -> var esempio = new Array("primo dato", "secondo dato", ...);
+      3. leggere i dati               -> document.write(esempio[1]);  -> stampo il secondo dato
+         leggere tutti i dati         -> for (var i = 0; i < 3; i++) {document.write(esempio[i] + "<br>");}
+
+      */
+      var frutta = new Array();
+      frutta[0] = "Mele";
+      frutta[1] = "Pere";
+      frutta[2] = "Banane";
+      frutta[3] = "Pesche";
+      // ciclo for calcolato dinamicamente
+      for (var i = 0; i < frutta.length; i++) {
+        document.write(frutta[i] + "<br>");
+      }
+      // ulteriore esempio di come funziona length
+      document.write("Ci sono " + frutta.length + " tipi di frutta");
+    </script>
+  </body>
+</html>
