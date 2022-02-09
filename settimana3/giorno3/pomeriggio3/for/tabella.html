@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Esempi di ciclo for</h1>
+
+    <script>
+      document.write("<table border=1 cellpadding = 10>"); //apro il tag table
+      for (let i = 1; i <= 10; i++) {
+        document.write("<tr>"); //apro tag riga
+        for (let m = 1; m <= 10; m++) {
+          document.write("<td>"); //apro il tag dato
+          document.write(i * m); //creo il contenuto
+          document.write("</td>"); //chiudo il tag dato
+        }
+        document.write("</tr>"); //chiudo il tag riga
+      }
+      document.write("</table>"); //chiudo il tag table alla fine dei due cicli
+    </script>
+  </body>
+</html>

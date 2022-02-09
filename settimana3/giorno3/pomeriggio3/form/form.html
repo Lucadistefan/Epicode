@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input text</title>
+  </head>
+  <body>
+    <input type="text" id="nomeUtente" placeholder="username" />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="password"
+    />
+    <button id="btn" onclick="login">Login</button>
+
+    <script>
+      function login() {
+        if (
+          document.getElementById("nomeUtente").value &&
+          document.getElementById("password").value
+        ) {
+          alert("Entra");
+        } else {
+          alert("Nome utente o password sbagliata");
+        }
+      }
+    </script>
+  </body>
+</html>
