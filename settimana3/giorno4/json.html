@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Json</title>
+  </head>
+  <body>
+    <script>
+      /*
+      var json = {             // definizione di un oggetto letterale
+          proprieta1: 'valore',
+          proprieta2: 'valore',
+          proprietaN: 'valore' // coppie proprietà/valore separate da una virgola ad eccezione dell'ultima
+      }                        // l'intero oggetto è racchiuso tra parentesi graffe
+      // differenza tra oggetto javascript e json
+      // dentro a un oggetto javascript possono esserci anche funzioni e valori complessi
+      // json ammette solo valori semplici: 1. stringhe, 2. numeri, 3. array, 4. oggetti, 5. booleani, 6. null
+
+      //sintassi json
+      {                                       // json inizia con una coppia di parentesi graffe che racchiudono l'intera struttura
+          "home": "epicode.it",               // coppia proprietà/valore
+          "link": "https://www.epicode.it",   // a differenza degli oggetti nomi e valori devono essere racchiusi tra ""
+          "argomento": "corsi per webmaster,"
+          "aree": [
+              {
+                  "area": "css",
+                  "url": "https://css.epicode.it"
+              },
+              {
+                  "area": "html",
+                  "url": "https://html.epicode.it"
+              }
+          ]
+      }
+      // accedere ad una proprietà di json
+      oggetto.home // epicode.it
+      oggetto.link // https://www.epicode.it
+      var aree = oggetto.aree // array
+      for(var i=0; i < aree.length; i += 1) {
+          var oggettoArea = aree[i];
+          var area = oggettoArea.area;
+          var url = oggettoArea.url;
+      }
+      // da settimana prossima json sarà molto importante perchè verrà usato da javascript tramite ajax
+      $.ajax({
+          url: 'json.php',
+          type: 'GET',
+          dataType: 'json',
+          success: function(oggetto) {
+              var sito = $(oggetto).home;
+              var url = $(oggetto).link;
+              var aree = $(oggetto).aree;
+          }
+      })
+      */
+
+      /* ********* WEB STORAGE API *********
+      
+      problemi relativi ai cookies
+      1. poco spazio (4k)
+      2. impossibilità di avere cookie differenziali in due diverse sessioni di navigazione sullo stesso dominio dallo stesso browser
+
+      problemi risolti da due nuovi oggetti
+      1. storage
+      localStorage -> storage dei dati e mantiene un comportamento del cookie su tutte le finestre del browser che condividono lo stesso dominio
+      sessionStorage -> meccanismo di persistenza dei dati è legato alla sessione di navigazione 
+      -> entrambi possono ospitare molti più dati (almeno 5mb)
+
+
+      // le specifiche 
+      -> una singola interfaccia Storage, sia localeStorage che sessionStorage implementano la stessa interfaccia
+      -> dispongono dello stesso set di metodi
+      o con un array associativo
+      localStorage.nome = "Luca";
+      localStorage.cognome = "Di Stefano";
+      oppure con metodi dedicati
+      localeStorage.setItem("'nome", "Luca"); // setto qualcosa
+      localeStorage.setItem("nome");          // ritorna Luca
+      // se inserisco stringhe ok, ma se tipi di dati diversi? storage consente di memorizzare solo contenuti testuali
+      local.Storage.ordini = Array ("1", "2", "3");
+      localStorage.ordini; // ritorna "1,2,3"
+      -> serializzazione su JSON
+      localStorage.ordini = JSON.stringify(Array(1,2,3));
+      JSON.parsel(localStorage.ordini);       // ritorna [1,2,3] // array di tre elementi     
+      */
+    </script>
+  </body>
+</html>

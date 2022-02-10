@@ -1,0 +1,42 @@
+{
+    "discografia": [
+        { 
+            "Titolo": "Stadium Arcadium",
+            "anno": "2006",
+            "Artista": "Red hot chili peppers",
+            "canzoni": [
+                { 
+                "canzone1": "Snow"
+                },
+                {
+                "canzone2": "Hump de Bump"
+                },
+                {
+                "canzone3": "Dani California"
+                }
+            ]
+        },
+        {
+            "Titolo": "Persona",
+            "anno": "2019",
+            "Artista": "Marracash",
+            "canzoni": [
+                {
+                    "canzone1": "Crudelia"
+                },
+                {
+                    "canzone2": "Quelli che non pensano"
+                },
+                {
+                    "canzone3": "Bravi a cadere"
+                }
+            ]
+        }
+    ]
+
+
+
+
+
+
+

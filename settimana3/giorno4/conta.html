@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="timer"></div>
+
+    <script>
+      var i = sessionStorage.getItem("count")
+        ? sessionStorage.getItem("count")
+        : 0;
+      setInterval(conta, 1000);
+
+      function conta() {
+        i++;
+        document.querySelector(".timer").innerHTML =
+          i + " secondi di sessione aperta"; // devo scrivere dentro a timer
+        sessionStorage.setItem("count", i); // devo scrivere dentro a sessionStorage
+      }
+      document.querySelector(".timer");
+    </script>
+  </body>
+</html>

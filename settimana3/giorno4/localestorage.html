@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/localstorage.js"></script>
+    <title>Localstorage</title>
+  </head>
+  <body>
+    <form name="form_da_ricordare">
+      <menu type="toolbar">
+        <button
+          type="button"
+          onclick="salvaIlDato(this.form.elements['testo_da_ricordare'].value);"
+        >
+          Memorizza quanto scritto
+        </button>
+        <button
+          type="button"
+          onclick="recuperaIlDato(this.form.elements['testo_da_ricordare']);"
+        >
+          Recupera l'ultimo testo memorizzato
+        </button>
+        <label>Cosa hai in mente?</label>
+        <textarea
+          name="testo_da_ricordare"
+          required
+          autofocus
+          placeholder="La lista della spesa, il teatro di questa sera..."
+        ></textarea>
+      </menu>
+    </form>
+  </body>
+</html>
