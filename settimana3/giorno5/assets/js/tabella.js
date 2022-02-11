@@ -35,3 +35,25 @@ function lettera() {
       break;
   }
 }
+
+/*
+function lettera() {
+    if (true) {
+        voto_medio = < 60
+        console.log('la lettera è E')
+
+    } else if() {
+        voto_medio = <70
+        console.log('la lettera è D')
+    } else if() {
+        voto_medio = <80
+        console.log('la lettera è C')
+    } else if() {
+        voto_medio = <90
+        console.log('la lettera è B')
+    } else() {
+        voto_medio = <100
+        console.log('la lettera è A')
+    }
+}
+*/
