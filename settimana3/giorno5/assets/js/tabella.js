@@ -38,21 +38,16 @@ function lettera() {
 
 /*
 function lettera() {
-    if (true) {
-        voto_medio = < 60
+    if (voto_medio = < 60) {
         console.log('la lettera è E')
 
-    } else if() {
-        voto_medio = <70
+    } else if(voto_medio = <70) {
         console.log('la lettera è D')
-    } else if() {
-        voto_medio = <80
+    } else if(voto_medio = <80) {
         console.log('la lettera è C')
-    } else if() {
-        voto_medio = <90
+    } else if(voto_medio = <90) {
         console.log('la lettera è B')
-    } else() {
-        voto_medio = <100
+    } else(voto_medio = <100) {
         console.log('la lettera è A')
     }
 }
