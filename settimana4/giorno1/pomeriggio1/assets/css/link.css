@@ -1,0 +1,12 @@
+#box {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: red;
+}
+
+#boxDiv {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+}
