@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/formValidate.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
+      integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      $(function () {
+        $("form[name='registration']").validate({
+          rules: {
+            firstname: "required",
+            lastname: "required",
+            email: {
+              required: true,
+              email: true,
+            },
+            password: {
+              required: true,
+              minlength: 5,
+            },
+            city: "required",
+          },
+          messages: {
+            firstname: "Please enter your firstname",
+            lastname: "Please enter your lastname",
+            password: {
+              required: "Please provide a password",
+              minlength: "Your password must be at least 5 characters long",
+            },
+            email: "Please enter a valid email address",
+            city: "Please enter your city",
+          },
+          submitHandler: function (form) {
+            form.submit();
+          },
+        });
+      });
+    </script>
+    <form action="" name="registration">
+      <label for="firstname">First Name</label>
+      <input
+        type="text"
+        name="firstname"
+        id="firstname"
+        placeholder="Federico"
+      />
+      <label for="lastname">Last Name</label>
+      <input
+        type="text"
+        name="lastname"
+        id="lastname"
+        placeholder="De Ambrosis"
+      />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="pippo@tin.it" />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+      />
+      <label for="city">City</label>
+      <input type="text" name="city" id="city" placeholder="es. Rome" />
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

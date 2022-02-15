@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // animate() .animate -> metodo usato per realizzare effetti grafici
+      // come argomento accetta un oggetto javascrip
+      // come valori proprietà css da animare con il valore finale
+      $("p").animate(
+        {
+          borderWidth: "4px", // borderWidth -> camel case -> css in javascript (maiuscola anziché trattino)
+          width: "+20px", // aumenta la larghezza di 20 pixel
+        },
+        "slow", // velocità dell'animazione -> lenta
+        "linear", // andamento dell'animazione -> lineare|swing
+        function () {
+          alert("animazione conclusa"); // funzione callback
+        }
+      );
+      // al metodo .animate() possiamo passare anche un secondo argomento con parametri aggiuntivi
+      // duration -> durata dell'animazione (espressa o in millisecondi o come stringa slow|normal|fast)
+      //easing -> cioè l'andamento (linear|swing)
+      //complete -> una funzione da lanciare ad animazione conclusa
+      // queue -> (true|false) -> inserisce l'animazione nella coda generale degli effetti
+
+      // Fermare e disabilitare gli effetti
+      // .stop() -> senza passare alcun argomento blocca l?effetto corrente e passa al successivo
+      // .stop(true) -> blocca definitivamente le animazioni e cancella l'eventuale coda
+
+      // ********* AJAX *********
+      // eventi ajax sono una serie di eventi che possono avvenire prima, durante e dopo una richiesta ajax
+      // 1. eventi locali -> che si verificano all'interno di una chiamata e possono essere impostati solo all'interno di una funzione $
+      //   2. eventi globali -> coinvolgono tutto il DOM e quindi possiamo rintracciarli/impostarli su una collezione di elementi (con metodi es.bind)
+      /*
+        Lista degli eventi Ajax gestiti da jQuery
+        ajaxStart (globale) -> quando la chiamata viene inizializzata
+        beforeSend (locale) e ajaxSend (globale) -> prima di inviare la chiamata
+        success (locale) e ajaxSuccess (globale) -> quando una chiamata ha successo
+        error (locale) e ajaxError (globale) -> quando avviene un errore
+        complete (locale) e ajaxComplete (globale) -> quando la chiamata si conclude indipendentemente da errori
+        ajaxStop (globale) -> quando non ci sono più chiamate da effettuare
+      */
+      $("#stato").bind("ajaxComplete", function () {
+        // codice da eseguire
+      });
+      $("#stato").ajaxComplete(function () {
+        // codice da eseguire
+      });
+      // funzione generica per ogni chiamata ajax (facoltativa)
+      $(document)
+        .ajaxStart(function () {
+          $("#messaggio").text("caricamento...");
+        })
+        .ajaxStop(function () {
+          $("messaggio").text("ho finito!");
+        });
+      // la funzione principale per inviare richieste AJAX è il metodo statico $.ajax();
+      /*
+           1. parametri base
+           url -> l'indirizzo al cquale inviare la chiamata
+           success -> la funzione da lanciare se la richiesta ha successo, accetta come parametri dati restituiti dal server e lo stato della chiamata
+           error -> la funzione da lanciare in caso di errore accetta un riferimento a una chiamata XMLHttpRequest che contiene lo stato e gli errori notificati
+      */
+      $.ajax({
+        url: "mioserver.html",
+        success: function (data, stato) {
+          $("#risultati").html(data);
+          $("statoChiamata").text(stato);
+        },
+        error: function (richiesta, stato, errori) {
+          alert("é avvenuto un errore. Stato della chiamata: " + stato);
+        },
+      });
+      /*
+        2. parametri opzionali
+        async -> true: se chiamata è sincrona bloccherà la pagina fino a fine chiamata
+        cache -> default true se è false forza il browser a ricaricare i dati anche se non sono cambiati
+        contentType -> il tipo di contenuto inviato al server
+        data -> un oggetto {chiave: valore, chiave2: valore2} oppure una stringa che contiene dti da inviare al server
+        dataType -> tipo di dati (html|xml|text|json|script)
+        global -> default true se è false gli aventi ajax globali non vengono lanciati
+        type -> get|post
+        ifModified | username | password | timeout
+      */
+      /*
+      $.ajax({
+          url:'dati.php',
+          dataType: 'json', // restituisce un oggetto json
+          complete: function (righe, stato) {
+              for (i=0, i < righe.length, i++) {
+                  var riga = righe[];
+
+              }
+          }
+      })
+      */
+    </script>
+  </body>
+</html>
