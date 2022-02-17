@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/pomeriggio3/assets/img.js"></script>
+    <title>img</title>
+  </head>
+  <body>
+    <img id="result" alt="" />
+    <div id="path"></div>
+
+    <script>
+      var w;
+
+      function startWorker() {
+        // questo if serve per vedere se sono supportati i web workers
+        if (typeof Worker !== "undefined") {
+          if (typeof w == "undefined") {
+            w = new Worker("assets/webworker.js");
+          }
+          // quando riceve il messaggio dal web worker modifica la pagina
+          // ho aggiunto 2 console log così vedete tutto l'event che manda il web workers e event.data che usate
+          w.onmessage = function (event) {
+            console.log(event);
+            console.log(event.data);
+            document
+              .querySelector("#result")
+              .setAttribute("src", event.data.path);
+            document.querySelector("#path").innerHTML =
+              "Dimensioni: " +
+              event.data.measure[0] +
+              "x" +
+              event.data.measure[1];
+          };
+        }
+      }
+      startWorker();
+    </script>
+  </body>
+</html>

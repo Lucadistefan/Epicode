@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+      vai = function (position) {
+        var mylat = position.coords.latitude;
+        var mylong = position.coords.longitude;
+
+        var myOptions = { zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP }; // zoom e tipo di mappa
+        var map = new google.maps.Map(
+          document.getElementById("target"),
+          myOptions
+        ); // disegna la mappa dentro il div target
+        var centro = new google.maps.LatLng(mylat, mylong); // centro mappa sulle coordinate
+        map.setCenter(centro);
+        var marker = new google.maps.Marker({
+          position: centro,
+          title: "Sei qui",
+        }); // aggiungi il marker
+        marker.setMap(map);
+      };
+      window.onload = function () {
+        idK = navigator.geolocation.getCurrentPosition(vai);
+      }; // al caricamento prendo la posizione attuale e la passo alla funzione vai, che è definita alla riga 8
+    </script>
+    <style>
+      #target {
+        width: 800px;
+        height: 640px;
+      }
+    </style>
+    <title>Geolocation</title>
+  </head>
+  <body>
+    <div id="target"></div>
+  </body>
+</html>
