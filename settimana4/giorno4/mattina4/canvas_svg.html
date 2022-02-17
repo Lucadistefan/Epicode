@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas vs SVG</title>
+    <script>
+      function drawShape() {
+        var canvas = document.getElementById("myCanvas");
+        if (canvas.getContext) {
+          var ctx = canvas.getContext("2d");
+          ctx.fillRect(25, 25, 200, 100); // (x, y, width, height)
+          ctx.strokeRect(50, 50, 50, 50);
+        }
+      }
+    </script>
+    <style type="text/css">
+      body {
+        margin: 20px;
+      }
+      canvas {
+        border: 1px solid #000;
+        float: left;
+        margin: 20px;
+      }
+      #redrect {
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body onload="drawShape();">
+    <!-- <canvas> è un elemento html5, 
+        può essere inteso come il corrispettivo digitale di una tela trasparente 
+        all'interno di questo spazio con specifiche API potremo tracciare linee, cerchi, rettangoli ecc.
+        è una grande matrice di pixel ognuno modificabile singolarmente nelle sue 4 componenti (RGB, alpha)
+    -->
+
+    <!-- 
+        <canvas width="200px" height="200px" id="demo_canvas">  
+        qui andrà il contenuto da mostrare 
+    metodo getContext -> porta verso le API di disegno
+    var canvas = document.getElementById('demo_canvas');
+    var contesto = canvas.getContext('2d') -> useremo solo 2d ma esiste anche una versione 3d    
+    2d -> path, modificatori, immagine, testo
+</canvas>
+
+
+SVG -> scalable vector graphic
+definisco elementi di natura grafica attraverso una sintassi XML
+1à la differenza, con canvas uso javascript | con SVG uso tag XML
+2à differenza con canvas ho una matrice di pixel | con svg operiamo in grafica vettoriale
+con la grafica vettoriale il risultato viene preservato dalle trasformazioni
+-> il formato grafico per il web è SVG
+-> un immagine svg è un file in fomrato XML
+-> in HTML possiamo creare animazioni e modificare immagini usando tag canvas e js
+-->
+
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <svg>
+      <rect id="redrect" width="300" height="100" fill="red"></rect>
+    </svg>
+  </body>
+</html>

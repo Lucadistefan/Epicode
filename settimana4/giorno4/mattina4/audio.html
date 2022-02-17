@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <audio
+      id="myaudio"
+      src="assets/audio/heartbeat.mp3"
+      width="100%"
+      controls
+    ></audio>
+    <button id="play" onclick="play();">Play</button>
+    <button onclick="indietro();">Indietro</button>
+    <button onclick="avanti();">Avanti</button>
+    <!-- 
+    <audio controls autoplay loop>
+        <source src="assets/audio/heartbeat.mp3" type="audio/mp3">
+        <source src="assets/audio/heartbeat.mp3" type="audio/ogg">
+    </audio>
+     -->
+
+    <script>
+      function play() {
+        var myAudio = document.getElementById("myaudio");
+        var btn = document.getElementById("play");
+        if (myAudio.paused) {
+          myAudio.play();
+          btn.textContent = "Pause";
+        } else {
+          myAudio.pause();
+          btn.textContent = "Play";
+        }
+      }
+
+      function indietro() {
+        var myAudio = document.getElementById("myaudio");
+        myAudio.currentTime -= 3.0;
+      }
+
+      function avanti() {
+        var myAudio = document.getElementById("myaudio");
+        myAudio.currentTime += 3.0;
+      }
+      // play, pause, playbackRate, duration, currentTime
+    </script>
+  </body>
+</html>

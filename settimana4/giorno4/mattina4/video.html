@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video player</title>
+  </head>
+  <body>
+    <video
+      id="myvideo"
+      src="assets/video/Flowers.mp4"
+      width="400"
+      poster="assets/video/poster.jpg"
+    ></video>
+    <button id="play" onclick="play()">Play</button>
+    <button id="stop" onclick="stop()">Stop</button>
+    <span id="duration"></span>
+
+    <script>
+      var myVideo = document.getElementById("myvideo");
+      myVideo.addEventListener("timeupdate", showTime);
+
+      function showTime() {
+        document.querySelector("#duration").innerHTML =
+          "Time" + Math.round(myVideo.currentTime);
+      }
+
+      function play() {
+        myVideo.play();
+      }
+
+      function stop() {
+        myVideo.pause();
+      }
+      /*
+      poster -> immagine di copertina che viene caricata prima che il video venga eseguito
+      controls -> aggiunge i controlli di default (play, pausa, volume, barra di avanzamento, fullscreen)
+      autoplay -> video parte in autoplay solo se audio=muted
+      loop -> esegue video/audio all'infinito
+      preload -> none|metadata|auto
+
+      */
+    </script>
+  </body>
+</html>

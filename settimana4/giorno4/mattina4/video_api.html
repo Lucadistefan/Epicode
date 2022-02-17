@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video api</title>
+    <script>
+      var video;
+
+      eseguiIlPlay = function () {
+        video.play();
+      };
+
+      eseguiIlPausa = function () {
+        video.pause();
+      };
+
+      doppiaVelocita = function () {
+        video.playbackRate = 2.0;
+      };
+
+      posizionatiAlCentro = function () {
+        video.currentTime = Math.round(video.duration / 2);
+      };
+
+      window.addEventListener("load", function () {
+        // al caricamento prende var video e lo mette nel tag video
+        video = document.querySelector("video");
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <button type="button" onclick="eseguiIlPlay">Play</button>
+      <button type="button" onclick="eseguiIlPausa">Pausa</button>
+      <button type="button" onclick="doppiaVelocita">x2</button>
+      <button type="button" onclick="posizionatiAlCentro">Centro</button>
+    </div>
+    <video poster="assets/video/poster.jpg" controls>
+      <source src="assets/video/trailer.mp4" type="video/mp4" />
+    </video>
+  </body>
+</html>
