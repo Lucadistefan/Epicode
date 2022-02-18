@@ -2,6 +2,7 @@ $(document).ready(function() {
     liste = {};
     $.ajax({
         url: "assets/json/media.json",
+        type: "GET",
         contentType: "application/json",
         dataType: "json",
         success: function(data) {
