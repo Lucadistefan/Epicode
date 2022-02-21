@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settimana 5 lezione 1</title>
+  </head>
+  <body>
+    <script>
+      "use strict"; // bisogna dichiarare esplicitamente tutte le variabili
+      var nome1 = "Luca";
+      var nome2 = "Luca"; // funziona ma non è consigliabile
+      console.log(nome2);
+      console.log(typeof nome1);
+      /*
+      var x = 5;
+      var y = "10";
+      console.log(x + y);
+        */
+      var x = 1;
+      function incrementa() {
+        x++;
+      }
+      incrementa();
+      console.log(x);
+
+      for (var i = 0; i < 5; i++);
+      {
+        console.log("Il valore di i: " + i);
+        console.log(`Il valore di i: ${i} interpolazione di stringhe`);
+      }
+      console.log(i);
+
+      for (let k = 0; k < 5; k++) {
+        console.log("Il valore di k " + k);
+      }
+
+      function somma(a, b) {
+        let c = a + b;
+        return c;
+      }
+      const s = (2, 3);
+      // s++; -> errore manipolazione di un valore costante
+      console.log(s);
+
+      function miadata(d = "26-12-1994") {
+        console.log(d);
+      }
+      miadata("21-02-2022");
+      miadata();
+
+      function createDiv(w = "400px", h = "100px", b = "1px solid #000") {
+        let div = document.createElement("div");
+        div.style.height = h;
+        div.style.width = w;
+        div.style.border = b;
+        document.getElementsByTagName("body")[0].appendChild(div);
+      }
+      createDiv();
+      createDiv("400px", "200px", "5px solid blue");
+
+      // ******** ARROW FUNCTION ********
+      let amici = ["Luigi", "Mario", "Andrea", "Paolo"];
+      amici.forEach((amico) => {
+        console.log(amico);
+      });
+      let mieiAmici = [
+        { nome: "Luigi", cognome: "Rossi" },
+        { nome: "Marco", cognome: "Verdi" },
+        { nome: "Andrea", cognome: "Neri" },
+        { nome: "Paolo", cognome: "Bianchi" },
+      ];
+      mieiAmici.forEach((amico) => {
+        console.log(`${amico.nome} ${amico.cognome}`);
+        // console.log(amico["nome"]); // sconsigliato
+      });
+
+      let add = function (x, y) {
+        return x + y;
+      };
+      console.log(add(10, 20));
+
+      let add2 = (x, y) => x + y;
+      console.log(add2(20, 30));
+    </script>
+  </body>
+</html>
