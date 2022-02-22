@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interpolazione di stringhe</title>
+  </head>
+  <body>
+    <!-- creo input -->
+    <input type="text" placeholder="aggiungi qualcosa" />
+    <!-- creo bottone -->
+    <button>Click</button>
+    <script>
+      "use strict";
+      let btn = document.querySelector("button"); // chiamo il bottone
+
+      btn.addEventListener("click", (stampa) => {
+        // lancio la funzione al click del bottone
+        let input = document.querySelector("input").value; // prendo il valore dell'input
+        alert(`hai inserito questo testo: ${input}`); // lancio l'alert
+      });
+    </script>
+  </body>
+</html>

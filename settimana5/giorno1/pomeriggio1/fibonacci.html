@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonacci</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      let x = 0;
+      let y = 1;
+      let z;
+      let n = 7;
+      let m = 3;
+
+      for (let i = 0; i <= 20; i++) {
+        console.log(x + y);
+        z = x + y;
+        x = y;
+        y = z;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <p></p>
+    <p></p>
+    <p id=""></p>
+    <p></p>
+
+    <script>
+      "use strict";
+      var i = 0;
+      var c = 0;
+
+      let timer = () => {
+        let p = (document.querySelectorAll(
+          "p"
+        )[0].innerHTML = `Contatore funzione freccia ${i}`);
+        i++;
+        setTimeout(timer, 1000);
+      };
+
+      function timerNormalFunction() {
+        let p = (document.querySelectorAll(
+          "p"
+        )[1].innerHTML = `Contatore funzione classica ${i}`);
+        setTimeout(timerNormalFunction, 1000);
+      }
+
+      setInterval(
+        () =>
+          (document.querySelectorAll(
+            "p"
+          )[2].innerHTML = `Sono passati ${c++} secondi`),
+        1000
+      );
+
+      timerNormalFunction();
+      timer();
+    </script>
+  </body>
+</html>
