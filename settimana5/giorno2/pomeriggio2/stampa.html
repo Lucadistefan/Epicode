@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      io = new Persona("Luca", "Di Stefano");
+      window.addEventListener("load", alert(""));
+
+      function Persona(nome, cognome) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.alert = function () {
+          return `Hi ${this.nome} ${this.cognome}`;
+        };
+      }
+    </script>
+  </body>
+</html>

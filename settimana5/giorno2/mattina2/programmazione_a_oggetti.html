@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programmazione a oggetti</title>
+  </head>
+  <body>
+    <script>
+      const adesso = new Date();
+      console.log(adesso);
+      const anno = adesso.getFullYear();
+      console.log(anno);
+      let mese = adesso.getMonth();
+      mese = mese + 1;
+      if (mese < 10) {
+        mese = "0" + mese;
+      }
+      console.log(mese);
+      const giorno = adesso.getDate();
+      console.log(giorno);
+      const oggi = `${giorno} - ${mese} - ${anno}`;
+      console.log(oggi);
+      /********************************************/
+      const x = Math.random();
+      console.log(x);
+
+      let k = 3.47;
+      console.log(Math.round(k));
+      console.log(Math.ceil(k));
+
+      /********************************************/
+      var miaStringa = new String("Testo di prova");
+      const lunghezza = miaStringa.length;
+      console.log(lunghezza);
+      const nuovaStringa = miaStringa.trim();
+      console.log(nuovaStringa.length);
+
+      const primaParte = miaStringa.substring(6, 8);
+      console.log(primaParte);
+      console.log(miaStringa.toUpperCase());
+
+      const p = miaStringa.indexOf("di");
+      console.log(p);
+      /********************************************/
+      /*
+      let persona = {
+        nome: "Luca",
+        cognome: "Di Stefano",
+        mostraNomeCompleto: function () {
+          return `${this.nome} $this.cognome`;
+        },
+      };
+      console.log(persona.nome);
+      console.log(persona.mostraNomeCompleto());
+      */
+      /*******************************************/
+      function persona(x, y) {
+        this.nome = x;
+        this.cognome = y;
+        this.email = "";
+        this.mostraNomeCompleto = function () {
+          return this.nome + " " + this.cognome;
+        };
+      }
+      let paoloRossi = new persona("Paolo", "Rossi");
+      console.log(paoloRossi.mostraNomeCompleto);
+      let luigiVerdi = new persona("Luigi", "Verdi");
+      console.log(luigiVerdi.mostraNomeCompleto);
+      /**********************************************/
+      Number.prototype.roundEuro = function () {
+        return Math.round(this * 100) / 100;
+      };
+      let n = 3.1457;
+      let m = n.roundEuro();
+      console.log(m);
+    </script>
+  </body>
+</html>

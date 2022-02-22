@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <br />
+          <br />
+          <br />
+          <button type="button" class="btn btn-info" id="add">Add</button>
+        </div>
+        <div class="col-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Età</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script>
+      const btn = document.querySelector("#add");
+      btn.addEventListener("click", function (event) {
+        event.preventDefault();
+        //lettura input
+        const nome = document.querySelector("#nome").value;
+        const cognome = document.querySelector("#cognome").value;
+        const dataNascita = document.querySelector("#data_nascita").value;
+        //creazione istanza oggetto
+        let p = new Persona(nome, cognome, dataNascita);
+        console.log(p.mostraNomeCompleto());
+        p.aggiungiAllaTabella();
+        p.studi = ["licenza media", "scuola superiore"];
+        p.nickname = "Luigino";
+      });
+      //definizione oggetto
+      function Persona(x, y, z) {
+        this.nome = x;
+        this.cognome = y;
+        this.dataNascita = z;
+        this.mostraNomeCompleto = function () {
+          return this.nome + " " + this.cognome;
+        };
+        this.aggiungiAllaTabella = function () {
+          const eta = this.calcolaEta();
+          let tabella = document.querySelector(".table");
+          let tr = document.createElement("tr");
+          tr.innerHTML = `<td>${this.nome} ${this.cognome}</td><td>${eta}</td>`;
+          tabella.appendChild(tr);
+        };
+        this.calcolaEta = function () {
+          const dataCorrente = new Date();
+          const annoCorrente = dataCorrente.getFullYear();
+          const dataNascita = new Date(this.dataNascita);
+          const annoNascita = dataNascita.getFullYear();
+          const eta = annoCorrente - annoNascita;
+          return eta;
+        };
+      }
+      Persona.prototype.studi = [];
+      Persona.prototype.nickname = "";
+    </script>
+  </body>
+</html>
