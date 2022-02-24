@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extends</title>
+  </head>
+  <body>
+    <script>
+      class Computer {
+        constructor(marca) {
+          this.marca = marca;
+        }
+        stampaMarca() {
+          return `la marca del computer è ${this.marca}`;
+        }
+      }
+
+      class Modello extends Computer {
+        constructor(_marca, _modello) {
+          super(_marca, _modello);
+          this.modello = _modello;
+        }
+        stampa() {
+          return `${this.stampaMarca()} ${this.modello}`;
+        }
+      }
+      let pc = new Modello("Apple", "Macbook air M1");
+      let b = document.querySelector("body");
+      let p = document.createElement("p");
+      p.innerText = pc.stampa();
+      b.appendChild(p);
+    </script>
+  </body>
+</html>

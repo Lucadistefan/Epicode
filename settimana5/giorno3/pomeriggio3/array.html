@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        constructor(name, surname, age) {
+          this.name = name;
+          this.surname = surname;
+          this.age = age;
+          return `${this.name} ${this.surname} ha ${this.age}`;
+        }
+      }
+
+      class Student extends User {
+        constructor(_name, _surname, _age, courses) {
+          super(_name, courses);
+        }
+      }
+
+      class Teacher extends User {
+        constructor(_name, _surname, _age, skill) {
+          super(_name, skill);
+        }
+      }
+    </script>
+  </body>
+</html>

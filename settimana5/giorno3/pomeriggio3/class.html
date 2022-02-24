@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class constructor</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        constructor(nome, cognome, eta) {
+          this.nome = nome;
+          this.cognome = cognome;
+          this.eta = eta;
+        }
+        saluta() {
+          console.log(
+            `l'utente ${this.nome} ${this.cognome} ha ${this.eta} anni`
+          );
+        }
+      }
+      let persona = new User("Luca", "Di Stefano", 27);
+      persona.saluta();
+      console.log(persona);
+    </script>
+  </body>
+</html>

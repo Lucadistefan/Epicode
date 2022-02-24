@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="dato" />
+    <button>aggiungi</button>
+    <ul></ul>
+    <script>
+      let list = document.querySelector("ul").value;
+      let users = [];
+
+      let btn = document.querySelector("button");
+      btn.addEventListener("click", stampa());
+
+      class Utente {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+
+      function stampa() {
+        let dato = document.getElementById(dato);
+        let input = new Utente(dato.value);
+        users.push(input);
+        list.innerHTML = "";
+      }
+
+      users.forEach();
+    </script>
+  </body>
+</html>

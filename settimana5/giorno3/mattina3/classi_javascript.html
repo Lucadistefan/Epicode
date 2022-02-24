@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classi</title>
+  </head>
+  <body>
+    <!-- 
+        Javascript è un linguaggio ad oggetti è basato sul concetto di prototipo
+        altri linguaggi invece sono basati sul concetto di classe -> un oggetto è sempre un istanza di una classe
+        altri linguaggi -> un oggetto non può esistere se prima non è definita una classe
+        con una classe definisco un'astrazione che definisce le caratteristiche che avranno gli oggetti creati da essa
+        altri linguaggi -> posso definire sottoclassi e oggetti che ereditano alcune caratteristiche della classe base
+        altri linguaggi -> una classe definisce tutte le caratteristiche
+        In javascript posso creare direttamente un oggetto senza bisogno di definire prima una classe
+        In javascript abbiamo i prototipi -> con i prototipi un oggetto prende a modello un altro oggetto e condivide alcune caratteristiche
+        In Javascript a partire da una classe possiamo arricchire delle caratteristiche (proprietà/valore, metodi)
+        In Ecma6 è prevista la possibilità di usare un approccio sintattico alla definizione degli oggetti analogo alle classi
+        modello -> una classe è definita da un costruttore
+    -->
+    <script>
+      class persona {
+        // class è una keyword
+        constructor(nome, cognome) {
+          this.nome = nome;
+          this.cognome = cognome;
+          this.email = "";
+          this.indirizzo = "";
+        } // nome di funzione riservato
+        mostraNomeCompleto() {
+          return this.nome + " " + this.cognome;
+        }
+      }
+      // creo un oggetto a partire dalla classe appena definita tramite l'operatore new
+      var marioRossi = new persona("Mario", "Rossi");
+      // get e set di proprietà
+      class persona {
+        // class è una keyword
+        constructor(nome, cognome) {
+          this.nome = nome;
+          this.cognome = cognome;
+          this._email = "";
+          this.indirizzo = "";
+        } // nome di funzione riservato
+        mostraNomeCompleto() {
+          return this.nome + " " + this.cognome;
+        }
+        get email() {
+          return this._email;
+        }
+        set email(value) {
+          var emailRegExp = /\w+@\w+\.\w{2,4}/i;
+          if (emailRegExp.test.value) {
+            this._email = value;
+          } else {
+            console.log("Email non valida!");
+          }
+        }
+      }
+
+      // SOTTOCLASSI E EREDITARIETA'
+      // creo delle sottoclassi estendendo una classe
+      class programmatore extends persona {
+        // extends dichiara la nuova classe programmatore che deriva dalla classe persona
+        constructor(nome, cognome) {
+          super(nome, cognome); // super richiamiamo il costruttore della classe persona
+          this.linguaggiConosciuti = [];
+        }
+      }
+      // Javascript non ha classi, quello che definiamo con la keyword class è un costruttore di oggetti
+      // le classi introdotte con ES6 sono dei modelli per creare degli oggetti Javascript
+
+      // ESEMPIO
+      class UserInfo {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+      }
+      // il metodo del costruttore viene richiamato quando la parola chiave new viene chiamata per creare un nuovo oggetto
+      const newUser = new UserInfo("Federico", 40);
+      // UpperCamelCase -> dovrebbe essere usato come convenzione per i nomi delle classi ES6
+      // aggiungere metodi a una classe
+      class ClassName {
+        constructor() {}
+        metodo_1() {}
+        metodo_2() {}
+        metodo_3() {}
+      }
+      class UserInfo {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        fullName() {
+          return this.name + "Di Stefano";
+        }
+      }
+
+      const newUser = new UserInfo("Luca", 27);
+      // accedo al metodo fullName
+      console.log(newUser.fullName()); // Luca Di Stefano
+
+      // METODI STATICI
+      // -> una funzione definita all'interno di una classe a cui possiamo accedere senza creare un nuovo oggetto di quella classe
+      // -> i metodi statici sono definiti a livello di classe -> possiamo richiamarli usando direttamente il nome della classe
+      // static è la keyword che usiamo per definire un metodo statico
+      class UserInfo {
+        constructor(speed, age) {
+          this.speed = speed;
+          this.age = age;
+        }
+        static information(info) {
+          return new UserInfo(info);
+        }
+      }
+      const information = UserInfo.information(20); // richiamo direttamente il metodo -> nome_classe.nome_metodo
+      information.speed; // 20
+      information.age; //20
+
+      // con extends una classe creata con un eredità di classe eredita anche tutti i metodi
+      class Car {
+        constructor(brand) {
+          this.carname = brand;
+        }
+        present() {
+          return "I have a " + this.carname;
+        }
+      }
+      class Model extends Car {
+        constructor(brand, mod) {
+          super(brand);
+          this.model = mod;
+        }
+        show() {
+          return this.present() + ", it is a " + this.model; // eredito il metodo
+        }
+      }
+      let myCar = new Model("Ford", "Fiesta");
+
+      // Sollevamento di classe
+      // -> non è possibile usare una classe prima di dichiararla
+
+      /* **************** MODULI ****************
+       i moduli servono a dividere la nostra applicazione in diversi file (modules)
+       esigenza che nasce dal fatto che la nostra applicazione può crescere (anche molto) di dimensione
+       dentro un modulo ? una classe o ad esempio una libreria di funzioni
+       soluzione vecchia? librerie che gestivano il caricamento di moduli es. AMD (require.js), CommonJS (node.js), UMD
+       che cos'è un modulo? un file, uno script
+       i moduli si possono caricare a vicenda tramite speciali direttive: export e import 
+       -> scambiarsi funzionalità o anche chiamare fuznioni da un modulo a un altro
+       export -> contrassegna variabili/funzioni che devono essere accessibili dall'esterno del modulo
+       import -> permette di importare funzionalità da altri moduli
+       */
+      // file sayHi.js
+      export function sayHi(user) {
+        // rendo utilizzabile la funzione all'esterno (cioè la esporto)
+        alert(`Ciao, ${user}!`);
+      }
+      // un altro file può importarla
+      // file name.js
+      import { sayHi } from "/sayHi.js"; // import {nome_della_funzione} from percorso
+      alert(sayHi); // function
+      sayHi("John"); // Ciao, John!
+      // la direttiva import carica il modulo che trova nel percorso
+      // !percorso relativo al file corrente!
+    </script>
+    <!-- 
+        esempio di importazione da file html
+        siccome i moduli usano keyword e funzionalità speciali 
+        devo istruire il browser sul fatto che lo script deve essere trattato come modulo 
+    -->
+    <script type="module">
+      import { sayHi } from "../sayHi.js"; // il browser recupera ed elabora automaticamente il modulo importato
+      document.body.innerHTML = sayHi("John"); // esegue lo script
+    </script>
+    <!-- i moduli lavorano solo via http(s), in locale le direttive import/export non funzionano -->
+    <!-- differenze tra i moduli e gli script "normali" -->
+    <!-- 
+        1. i moduli lavorano sempre in modalità strict mode "use strict"
+        2. visibilità delle variabili nei moduli, ogni modulo ha variabili indipendenti
+        ? per farla funzionare? i moduli devono eseguire l'export di ciò che vogliono sia accessibile dall'esterno
+        3. due script type="module" non vedono le variabili uno dell'altro
+        -> soluzione -> posso creare una variabile globale assegnandola ad una propietà window
+        -> window.user = "John"; -> sarà accessibile a tutti gli scripts con type="module" o senza
+        4. un modulo viene eseguito solo la prima volta che viene importato
+    -->
+    <!-- esportare più volte -->
+    <script>
+        // file admin.js
+        export let admin = {
+            name: "John";
+        }
+        // file1.js
+        import {admin} from "./admin.js";
+        admin.name = "Peter";
+        // file2.js
+        import {admin} from "./admin.js";
+        alert(admin.name); // Peter
+        // 1.js e 2.js si riferiscono allo stesso oggetto, i cambiamenti fatti in 1.js sono visibili in 2.js
+
+        // schema
+        // 1. un modulo esporta alcuni strumenti di configurazione (ad esempio un oggetto)
+        // 2. alla prima importazione lo inizializziamo, impostando le sue proprietà
+        // 3. ulteriori importazioni usano il modulo
+
+        // 1.file admin.js
+        export let config = {};
+        export function sayHi() {
+            alert(`sono pronto, ${config.user}!`);
+        }
+        // 2.file init.js
+        import {config} from "./admin.js";
+        config.user = "Peter"; // ora il modulo admin.js è configurato
+        // 3.another.js
+        import {sayHi} from "./admin.js";
+        sayHi(); // sono pronto, Peter!
+
+        // 5. all'interno di un modulo this non è definito!
+        // se lo script è normale -> alert(this); -> window
+        // se lo script type="module" -> alert(this); -> undefined
+
+        // il download di un modulo esterno <script type="module" src="" -> non blocca l'elaborazione dell'html, caricati in parallelo
+        // i moduli attendono fino al momento in cui l'html è pronto
+        // l'ordine degli script viene mantenuto -> gli script che appaiono prima vengono eseguiti prima
+        // i moduli "vedono sempre la pagina html completamente caricata, inclusi gli elementi che stanno sotto di essi
+
+        // non è possibile accettare senza percorso "bare"
+
+        /* <script>
+          export let months = []; // esporto un array
+          export const year = 2022; // esporto una costante
+          export class User { // esporto una classe
+              constructor(name) {
+                  this.name = name;
+              }
+          }
+      */
+
+      // possiamo inserire export separatamente
+      // file say.js
+      // function sayHi
+      // function sayBye
+      // export {sayHi, sayBye}; // una lista di funzioni esportate
+
+      // import
+      // main.js
+      import {sayHi, sayBye} from "./say.js";
+      // main.js se devo importare tutto
+      import * as say from "./say.js"; // import as <obj>
+        // perchè limitare l'uso di *
+        // 1. velocizzare il caricamento e non usare cose inutili
+        // 2. se elenchiamo solo ciò che ci serve avremo nomi più brevi: sayHi() anziché say.sayHi()
+        // 3. migliore visione della struttura del codice
+
+        // import as -> per importare con nomi differenti
+        // main.js
+        import {sayHi as hi, sayBye as bye} from "./say.js";
+        hi("John"); // Hello, John!
+        bye("John"); // Bye, John!
+        // say.js
+        export {sayHi as hi, sayBye as bye} // hi e bye saranno poi i nomi per usarli con import
+
+        // due tipi di moduli -> 1. moduli che contengono una libreria: pacchetti di funzioni (say.js)
+        // 2. moduli che dichiarano una singola identità (es. esporta solo una classe)
+        // export default -> esporta una cosa per modulo
+        export default class User { // export default lo posso mettere solo una volta per file
+            constructor(name) {
+                this.name = name;
+            }
+        }
+        // file main.js
+        import User from "./user.js"; // lo importo senza graffe
+        new User("John");
+
+        // default
+        function sayHi(user) {
+            alert(`hello, ${user}!`);
+        }
+
+        /*
+        export [default] class/function/variabile
+        export indipendente -> {x[as y], .......}
+        import {x [as y]} from "module";
+        import x from "module"
+
+        */
+    </script>
+  </body>
+</html>

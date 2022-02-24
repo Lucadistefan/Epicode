@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settimana 5 lezione 3</title>
+  </head>
+  <body>
+    <script>
+      // dichiaro una classe
+      class Profile {
+        // Costruttore di class
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        getName() {
+          // metodo per restituire il nome
+          return this.name;
+        }
+        getAge() {
+          // metodo per restituire age
+          return this.age;
+        }
+      }
+      // Classe Studente extends classe profile
+      class Student extends Profile {
+        // Qualsiasi dato della class Profile può essere letto dalla class Student
+        constructor(name, age, languages) {
+          // acquisisco gli attributi della class
+          super(name, age);
+          this.lang = [...languages]; // ... array destrutturato -> ci consente di inserire dentro variabili gli elementi di un array odi un oggetto
+        }
+        // metodo per mostrare tutti gli attributi
+        getDetails() {
+          console.log("Name : " + this.name);
+          console.log("Age : " + this.age);
+          console.log("Languages : " + this.lang);
+        }
+      }
+      // creo un oggetto della child class con il passaggio dei valori
+      var student1 = new Student("Mario Rossi", 24, [
+        "HTML",
+        "Css",
+        "Php",
+        "Javascript",
+      ]);
+      student1.getDetails();
+    </script>
+  </body>
+</html>
