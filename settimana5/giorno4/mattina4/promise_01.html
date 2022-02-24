@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      .card {
+        display: none;
+      }
+    </style>
+    <title>Promise</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>
+                  <button class="btn btn-success" id="add">Add New</button>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="table_user"></tbody>
+          </table>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <div class="card-text"></div>
+            </div>
+          </div>
+          <div class="form">
+            <h3>Create new user</h3>
+            <form>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" class="form-control" />
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="form-control"
+              />
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+              />
+              <hr />
+              <button type="submit" class="btn btn-success" id="mysend">
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      /*
+        function startDelayed() {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve("Finito");
+            }, 3000);
+          });
+        }
+        async function asyncFunction() {
+          console.log("start async"); // 1
+          let risposta = await startDelayed();
+          console.log("end async"); // 3
+          console.log(risposta); // 4
+        }
+
+        asyncFunction();
+        console.log("Next step"); // 2
+      */
+      document.querySelector("#add").addEventListener("click", () => {
+        document.querySelector(".form").style.display = "block";
+        document.querySelector(".card").style.display = "none";
+      });
+
+      document.querySelector("#mysend").addEventListener("click", function () {
+        event.preventDefault();
+        const cname = document.querySelector("#name").value;
+        const cusername = document.querySelector("#username").value;
+        const cemail = document.querySelector("#email").value;
+        const data = { name: cname, username: cusername, email: cemail };
+        fetch("https://jsonplaceholder.typicode.com/users", {
+          method: "POST",
+          headers: { "Content-Type": "Application/json" },
+          body: JSON.stringify(data),
+        }).then(function (response) {
+          console.log(response);
+          if (response.status !== 201) {
+            alert("Errore!");
+          } else {
+            console.log("ok");
+            caricaUser();
+          }
+        });
+      });
+
+      function caricaUser() {
+        fetch("https://jsonplaceholder.typicode.com/users")
+          .then(function (response) {
+            console.log(response);
+            if (response.status !== 200) {
+              return;
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            let strHtml = "";
+            data.forEach((user) => {
+              strHtml += `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.username}</td><td>${user.email}</td><td><button class="btn btn-info" data-id="${user.id}">View</button></td></tr>`;
+            });
+            document.querySelector("#table_user").innerHTML = strHtml;
+            document.querySelectorAll(".btn-info").forEach((btn) => {
+              btn.addEventListener("click", function () {
+                const id = this.dataset.id;
+                console.log(id);
+                fetch("https://jsonplaceholder.typicode.com/users/" + id)
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log(data);
+                    document.querySelector(".card").style.display = "block";
+                    document.querySelector(".form").style.display = "none";
+                    document.querySelector(".card-title").innerText = data.name;
+                    let mycard = document.querySelector(".card-text");
+                    let email = document.createElement("p");
+                    email.innerHTML = `<strong>Email: </strong>${data.email}`;
+                    mycard.appendChild(email);
+                    let address = document.createElement("p");
+                    address.innerHTML = `<strong>Address: </strong>
+                      ${data.address.street}
+                       ${data.address.suite} ${data.address.city}`;
+                    mycard.appendChild(address);
+                  });
+              });
+            });
+          });
+      }
+      caricaUser();
+    </script>
+  </body>
+</html>
