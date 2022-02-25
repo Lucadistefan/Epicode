@@ -2,13 +2,13 @@ import { FileDoc } from "./FileDoc.js";
 import { UserInterface } from "./UserInterface.js";
 /*importa le due classi definite negli altri files*/
 export class App {
+  ui = new UserInterface();
+  files = [];
+  openFile = null;
+  idFile = -1;
   /* costruttore: i dati sono presi dal file editor.js che contengono gli id dell'html, che istanzia una nuova app e tramite il costruttore assegna i valori all'istanza di UserInterface  */
   constructor(_ui) {
     this.ui = _ui;
-    ui = new UserInterface();
-    files = [];
-    openFile = null;
-    idFile = -1;
     /*inizializza tinymce, passando il riferimento all html tramite la proprietà dell'oggetto*/
     tinymce.init({
       selector: `#${this.ui.editor}`,
