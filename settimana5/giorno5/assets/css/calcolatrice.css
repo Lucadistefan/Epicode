@@ -1,0 +1,41 @@
+.content {
+  margin-left: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasto {
+  background-color: #a5cff3;
+  color: #175c97;
+  font-size: 22px;
+  border: none;
+  margin: 4px 2px;
+  height: 55px;
+  width: 75px;
+}
+
+.display {
+  background: none;
+  color: #175c97;
+  font-size: 24px;
+  border: #175c97 solid 2px;
+  margin: 4px 2px;
+  width: 317px;
+  height: 50px;
+}
+
+.color {
+  background-color: rgb(16, 91, 39);
+  color: white;
+}
+
+.uguale {
+  width: 324px;
+  background-color: orange;
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    width: 100%;
+  }
+}

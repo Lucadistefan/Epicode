@@ -38,16 +38,50 @@ export class App {
     }
   }
   /* metodo che carica l'oggetto file */
-  build() {
-    for (let i = 0; i < this.files.length; i++) {}
+  loadFile(el) {
+    this.idFile = el.target.dataset.id;
+    this.openFile = new FileDoc(
+      this.files[this.idFile].title,
+      this.files[this.idFile].text
+    );
+    this.title.value = this.openFile.title;
+    tinymce.get(this.ui.editor).setContent(this.openFile.text);
   }
   /* metodo che ripulisce */
-
+  newDoc() {
+    this.clean();
+  }
   /* altro metodo: se non ci sono file caricati crea un oggetto file e fa il push nell'array */
-  /* altrimenti modifica il file assegnando i valori letti dal form*/
-  /* salva l'array nel localStorage e chiama la funzione che stampa a video*/
-
+  saveDoc() {
+    if (this.openFile == null) {
+      let file = new FileDoc();
+      file.title = this.title.value;
+      file.text = tinymce.get(this.ui.editor).getContent();
+      this.files.push(file);
+      /* altrimenti modifica il file assegnando i valori letti dal form*/
+    } else {
+      this.openFile.title = this.title.value;
+      this.openFile.text = tinymce.get(this.ui.editor).getContent();
+      this.files[this.idFile] = this.openFile;
+    }
+    /* salva l'array nel localStorage e chiama la funzione che stampa a video*/
+    localStorage.setItem("files", JSON.stringify(this.files));
+    /* chiama la funzione che stampa a video */
+    this.build();
+  }
   /* metodo che stampa a video */
-
+  build() {
+    this.clean();
+    this.file_list.innerHTML = "";
+    this.files.forEach((el, index) => {
+      this.file_list.innerHTML += `<li data-id="${index} class="list-group-item list-group-item-action docs">${el.title}</li>`;
+    });
+    $(".docs").click(this.loadFile.bind(this));
+  }
   /* metodo che svuota il form */
+  clean() {
+    this.title.value = "";
+    tinymce.get(this.ui.editor).setContent(" ");
+    this.openFile = null;
+  }
 }

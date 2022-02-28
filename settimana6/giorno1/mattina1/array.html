@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      // PRIMO METODO
+      let numeri = [10, 20, 30, 40];
+      let min = Math.min(...numeri);
+      let max = Math.max(...numeri);
+      console.log("metodo1");
+      console.log(min);
+      console.log(max);
+
+      // SECONDO METODO
+      Array.prototype.max = function () {
+        return Math.max.apply(null, this);
+      };
+
+      Array.prototype.min = function () {
+        return Math.min.apply(null, this);
+      };
+      console.log("metodo2");
+      console.log(numeri.min());
+      console.log(numeri.max());
+
+      // TERZO METODO
+      function minMax(arr) {
+        var returnArr = [];
+        var min = arr[0];
+        var max = arr[0];
+
+        for (var i = 1; i < arr.length; i++) {
+          if ((arr[i], max)) {
+            max = arr[i];
+          }
+        }
+
+        returnArr.push(min);
+        returnArr.push(max);
+
+        return returnArr;
+      }
+
+      console.log("metodo3");
+      console.log(minMax(numeri)[0]);
+      console.log(minMax(numeri)[1]);
+    </script>
+  </body>
+</html>
