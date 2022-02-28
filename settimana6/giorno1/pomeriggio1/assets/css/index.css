@@ -1,0 +1,13 @@
+svg {
+  color: rgb(85, 199, 62);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.colore {
+  background-color: rgb(85, 199, 62);
+}
