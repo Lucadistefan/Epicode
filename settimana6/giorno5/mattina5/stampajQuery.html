@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+        display: inline-block;
+      }
+    </style>
+    <title>Stampa jQuery</title>
+  </head>
+  <body>
+    <button id="tutti">Tutti</button>
+    <button id="rossi">Rossi</button>
+    <button id="gialli">Gialli</button>
+    <button id="verdi">Verdi</button>
+    <main></main>
+
+    <script>
+      class Div {
+        constructor(info = []) {
+          this.info = info;
+        }
+        getRed() {
+          for (var i = 0; i < this.info.length; i++) {
+            if (this.info[i].color == red) {
+              for (var n = 0; n < this.info[i].n; n++) {
+                red.push("<div style='background-color:red'></div>");
+              }
+            }
+          }
+        }
+        getGreen() {
+          for (var i = 0; i < this.info.length; i++) {
+            if (this.info[i].color == green) {
+              for (var n = 0; n < this.info[i].n; n++) {
+                red.push("<div style='background-color:green'></div>");
+              }
+            }
+          }
+        }
+        getYellow() {
+          for (var i = 0; i < this.info.length; i++) {
+            if (this.info[i].color == yellow) {
+              for (var n = 0; n < this.info[i].n; n++) {
+                red.push("<div style='background-color:yellow'></div>");
+              }
+            }
+          }
+        }
+      }
+
+      let colors = [
+        { color: "red", n: 2 },
+        { color: "green", n: 3 },
+        { color: "yellow", n: 1 },
+      ];
+      let div = new Div(colors);
+
+      $("#tutti").click(function () {
+        $("main").html("<div></div>");
+      });
+    </script>
+  </body>
+</html>

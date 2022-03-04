@@ -19,8 +19,23 @@
       ];
       let lista = document.querySelector("ul");
 
-      names.forEach(function (element, index) {
-        lista.innerHTML += `<li><strong>${names[index]}: </strong>${jobs[index]}</li>`;
+      class NameJobs {
+        constructor(names = [], jobs = []) {
+          this.names = names;
+          this.jobs = jobs;
+        }
+        print() {
+          let nameJobs = [];
+          names.forEach(function (element, index) {
+            lista.innerHTML += `<li><strong>${names[index]}: </strong>${jobs[index]}</li>`;
+          });
+          return nameJobs;
+        }
+      }
+
+      let persone = new NameJobs(names, jobs);
+      persone.print().forEach((element) => {
+        lista.innerHTML += element;
       });
     </script>
   </body>
