@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // REGULAR EXPRESSION
+      // è un oggetto -> costruttore -> new RegExp
+      // quindi avrà delle proprietà e dei metodi -> che serviranno a gestire testi (individuarli, sostituirli ecc.)
+      var x = new RegExp("abc"); // creo un espressione regolare che cerca la stringa abc
+      var y = /abc/; // creo un espressione regolare che cerca la stringa abc
+      // ricerco nel pattern + inserire dei modificatori
+      /* modificatori
+      i -> ignora la distinzione tra minuscole e maiuscole
+      g -> ricerca globale indivvidua tutte le occorrenze di un pattern
+      m -> multilinea
+      */
+      var x = new RegExp("abc", "i");
+      var y = /abc/i;
+      var x = new RegExp("abc", "ig");
+      var y = /abc/gi;
+      /////////// caratteri speciali (per individuare un insieme di stringhe)
+      // []
+      var y = /[aeiou]bc/; // cerco l'insieme delle stringhe che inizia per vocale e finisce per bc
+      var z = [a - z]; // cerco un intervallo tra a e z
+      var p = [0 - 9]; // cerco un numero
+      /////////// metacratteri -> caratteri che indicano altri caratteri
+      // . -> un qualsiasi carattere
+      // \w -> un carattere alfanumerico
+      // \d -> digit -> una cifra numerica
+      /////////// quantificatori
+      // + -> più occorrenze
+      // {n} -> cerco n occorrenze
+      var codiceFiscale = /[a-z]{6}\d{2}[abcdehlmprst]\d{2}[a-z]\d{3}[a-z]/i;
+      /////////// proprietà -> global, ignore, multiline
+      /////////// metodi
+      // .test -> verifica se la stringa contenuta nella regular expression è contanuta nella stringa passata come argomento
+      var t = /\d/;
+      y.test("str1nga"); // true
+      y.test("stringa"); // false
+      // .exec -> restituisce un array con la sottostringa
+      var t = /\d/;
+      y.exec("str1ng4"); // ["1"]
+      y.exec("stringa"); // null
+      // oggetto String accetta come argomento di alcuni metodi delle regular expression
+      // .search .split .replace .match
+      var ip = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
+      var email = /\w+@\w+\.\w{2,4}/i;
+    </script>
+  </body>
+</html>

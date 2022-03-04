@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forbici carta sasso</title>
+  </head>
+  <body>
+    <button>Clicca</button>
+    <div>
+      <h1>P1</h1>
+      <img src="assets/img/Scissors.png" id="utente" alt="" width="200px" />
+    </div>
+    <div>
+      <h1>P2</h1>
+      <img src="assets/img/Scissors.png" id="pc" alt="" width="200px" />
+    </div>
+    <div id="esito"></div>
+
+    <script>
+      let rdn = [
+        "assets/img/Paper.png",
+        "assets/img/Rock.png",
+        "assets/img/Scissors.png",
+      ];
+      let utente = document.querySelector("#utente");
+      let pc = document.querySelector("#pc");
+      let esito = document.querySelector("#esito");
+      let btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        genera();
+      });
+
+      function genera() {
+        let n = Math.round(Math.random() * 2);
+        let s = Math.round(Math.random() * 2);
+        if (n == 0) {
+          utente.setAttribute("src", rdn[0]);
+        } else if (n == 1) {
+          utente.setAttribute("src", rdn[1]);
+        } else {
+          utente.setAttribute("src", rdn[2]);
+        }
+
+        if (s == 0) {
+          pc.setAttribute("src", rdn[0]);
+        } else if (s == 1) {
+          pc.setAttribute("src", rdn[1]);
+        } else {
+          pc.setAttribute("src", rdn[2]);
+        }
+        stampa();
+      }
+
+      function stampa() {
+        switch ((s, n)) {
+          case "0":
+            if (s == "0" && n == "0") {
+            }
+        }
+      }
+    </script>
+  </body>
+</html>

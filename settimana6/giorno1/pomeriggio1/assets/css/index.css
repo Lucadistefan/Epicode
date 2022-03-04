@@ -1,5 +1,9 @@
+h2 {
+  text-shadow: 3px;
+}
+
 svg {
-  color: rgb(85, 199, 62);
+  color: rgba(23, 223, 126, 255);
 }
 
 ul {
@@ -9,5 +13,9 @@ ul {
 }
 
 .colore {
-  background-color: rgb(85, 199, 62);
+  color: rgba(23, 223, 126, 255);
+}
+
+#back {
+  background-color: rgba(23, 223, 126, 255);
 }
