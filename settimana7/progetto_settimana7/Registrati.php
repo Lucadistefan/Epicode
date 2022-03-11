@@ -3,7 +3,7 @@
     
     $pdo = connect();
     $queryReg = $pdo->query('INSERT INTO users (email, password, first_name, last_name;') 
-    VALUES ('$email', '$password', '$nome', '$cognome');
+                VALUES ('$email', '$password', '$nome', '$cognome');
     
     $email = $_POST['email'];
     $password = $_POST['password'];
