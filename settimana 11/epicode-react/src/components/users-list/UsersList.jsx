@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { getUsers } from '../../functions/users';
 import UsersListRow from '../users-list-row/UsersListRow';
 
@@ -29,19 +30,21 @@ export default class UsersList extends React.Component {
         const rows = this.state.users.map(user => <UsersListRow deleteUser={this.deleteUser} key={user.id} user={user} />);
 
         return (
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th className="text-end"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { rows }
-                </tbody>
-            </table>
+            <>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th className="text-end"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { rows }
+                    </tbody>
+                </table>
+            </>
         );
     }
 }

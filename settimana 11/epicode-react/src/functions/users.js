@@ -3,8 +3,10 @@ import { User } from "../models/User"
 export const getUsers = () => {
     return fetch('http://jsonplaceholder.typicode.com/users')
         .then(resp => resp.json())
-        .then(users => users.map(user => new User(user.id, user.email, user.name)));
+        .then(users => users.map(user => userObjToModel(user)));
 };
+
+export const userObjToModel = user => new User(user.id, user.email, user.name);
 
 export const signUp = (fields) => {
     fetch('https://reqres.in/api/register', {
